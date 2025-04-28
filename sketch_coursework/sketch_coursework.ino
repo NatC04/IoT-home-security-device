@@ -1,10 +1,10 @@
-#define echoPin 4 // attach pin D2 Arduino to pin Echo of HC-SR04
-#define trigPin 5 //attach pin D3 Arduino to pin Trig of HC-SR04
+#define echoPin 11 // Attach pin 11 Arduino to pin Echo of Ultrasonic sensor
+#define trigPin 12 // Attach pin 12 Arduino to pin Trig of Ultrasonic sensor
 
-// defines variables
-const int buzzer = 9; // buzzer to ardunio pin 9
-long duration; // variable for the duration of sound wave travel
-int distance; // variable for the distance measurement
+// Define variables
+const int buzzer = 13; // Buzzer to ardunio pin 13
+long duration; // Variable for the duration of sound wave travel
+int distance; // Variable for the distance measurement
 
 void setup() {
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an OUTPUT
@@ -14,6 +14,7 @@ void setup() {
 
 }
 void loop() {
+  // Sets buzzer off
   noTone(buzzer);
   // Clears the trigPin condition
   digitalWrite(trigPin, LOW);
@@ -23,10 +24,11 @@ void loop() {
   digitalWrite(trigPin, LOW);
   duration = pulseIn(echoPin, HIGH);// Calculating the distance
   distance = duration * 0.034 / 2; // Speed of sound wave divided by 2 (there and back)
-  // Displays the distance on the Serial Monitor - Not required in final product
+  // Displays the distance on the Serial Monitor
   Serial.print("Distance: ");
   Serial.print(distance);
   Serial.println(" cm");
+  // Activates based on distance
   if (distance < 50) {
     //tone(buzzer, 1000);
     delay(5000);
