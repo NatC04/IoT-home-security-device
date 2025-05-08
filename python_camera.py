@@ -14,7 +14,7 @@ smtp_port = 587
 smtp_server = "smtp.gmail.com"
 
 email_from = "doorseciot@gmail.com"
-email_to = "doorseciot@gmail.com"
+email_to = input("Enter the email address to send alerts to: ")
 
 pswd = "cxfecqqamsoyvlab"
 
